@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Барилгын материал</title>
+  <link rel="stylesheet" href="#">
+  <!--<style>
+      body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-name {
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .product-price {
+      color: green;
+      font-weight: bold;
+    }
+  </style>-->
+
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  color: #333;
+}
+
+header {
+  background: #ffffffcc;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #0066cc;
+}
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  padding: 10px 16px 0;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.product-card p {
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  color: #555;
+  min-height: 50px;
+}
+
+.price {
+  padding: 10px 16px 16px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #d32f2f;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/*sags*/
+
+button {
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  margin: 10px 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #00bcd4;
+}
+
+#cart-section {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 500px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+#cart-section h3 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+#cart-items li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+#total {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/**/
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  display: block;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block; /* эсвэл энэ байх ёстой */
+}
+
+/**/
+.product-card img {
+  width: 100%;
+  height: 440px; /* өндөр болгож өглөө */
+  object-fit: cover;
+  display: block;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SellSmart</h1>
+    <nav>
+      <a href="index.html">🏠Нүүр</a>
+      <a href="product-detail.php">📦Бүтээгдэхүүн</a>
+      <!--<a href="#">🧾Ангилал</a>-->
+      <div class="dropdown">
+        <style>
+           body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f6f9ff;
+      padding: 10px 40px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+
+    .navbar a:hover {
+      background-color: #e0e0e0;
+      border-radius: 6px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-btn {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px 15px;
+      color: #333;
+    }
+
+    .dropdown-btn:hover {
+      background-color: #e0e0e0;
+      border-radius: 6px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f2f2f2;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+          </style>
+        <button class="dropdown-btn"><i class="fas fa-file-alt"></i>🧾Ангилал ▾</button>
+        <div class="dropdown-content">
+          <a href="barilgiin-material.html">🏗 Барилгын материал</a>
+          <a href="tsahilgaan.html">💡 Цахилгаан</a>
+          <a href="bagaz-heregsel.html">🔧 Багаж хэрэгсэл</a>
+          <a href="budag.html">🎨 Будаг</a>
+        </div>
+      </div>
+      <a href="cart.php">🛒Сагс</a>
+      <a href="checkout.php">💳Төлбөр</a>
+      <a href="salbar.php">📍Салбар</a>
+      <a href="login.php">🔑Нэвтрэх</a>
+      <a href="register.php">📝Бүртгүүлэх</a>
+    </nav>
+  </header>
+
+  <!--<h1>🏗️ Барилгын материал</h1>-->
+  <style>
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-name {
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .product-price {
+      color: green;
+      font-weight: bold;
+    }
+    </style>
+    <!--<h1>🏗️ Барилгын материал</h1>-->
+
+  <div class="grid-container">
+    <div class="product-card">
+      <img src="portland-cement.jpg" alt="Цемент">
+      <div class="product-name">Портланд Цемент 50кг</div>
+      <div class="product-price">25,000₮</div>
+      <button>Сагсанд нэмэх</button>
+    </div>
+
+    <div class="product-card">
+      <img src="toosgo.jpg" alt="Тоосго">
+      <div class="product-name">Улаан Тоосго</div>
+      <div class="product-price">400₮ / ш</div>
+      <button>Сагсанд нэмэх</button>
+    </div>
+
+    <div class="product-card">
+      <img src="armatura-640-480-500x500.png" alt="Төмөр">
+      <div class="product-name">Арматур 12мм</div>
+      <div class="product-price">4,500₮ / м</div>
+      <button>Сагсанд нэмэх</button>
+    </div>
+
+    <div class="product-card">
+      <img src="banz.png" alt="Мод">
+      <div class="product-name">Банз 2м</div>
+      <div class="product-price">15,000₮</div>
+      <button>Сагсанд нэмэх</button>
+    </div>
+
+    <!-- Шинэ бүтээгдэхүүнүүд нэмж болно -->
+  </div>
+
+</body>
+</html>
